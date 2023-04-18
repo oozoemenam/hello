@@ -3,7 +3,7 @@ package main;
 public class Main {
 
     public static void main(String[] args) {
-        swapNumbers(5, 7);
+        System.out.println(stringContainsVowels("Hello Java"));
     }
 
     public static String reverse(String in) {
@@ -24,5 +24,9 @@ public class Main {
         b = a - b;
         a = a - b;
         System.out.println("a: " + a + " b: " + b);
+    }
+
+    public static boolean stringContainsVowels(String in) {
+        return in.toLowerCase().matches(".*[aeiou].*");
     }
 }
