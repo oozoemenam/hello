@@ -3,7 +3,7 @@ package main;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(isPrime(19));
+        printFibonacciSequence(10);
     }
 
     public static String reverse(String in) {
@@ -43,5 +43,17 @@ public class Main {
             }
         }
         return true;
+    }
+
+    public static void printFibonacciSequence(int count) {
+        int a = 0;
+        int b = 1;
+        int c = 1;
+        for (int i = 1; i <= count; i++) {
+            System.out.println(a);
+            a = b;
+            b = c;
+            c = a + b;
+        }
     }
 }
