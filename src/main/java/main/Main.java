@@ -1,9 +1,11 @@
 package main;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-        printFibonacciSequence(10);
+        System.out.println(onlyOddNumbers(List.of(1, 3, 5)));
     }
 
     public static String reverse(String in) {
@@ -55,5 +57,14 @@ public class Main {
             b = c;
             c = a + b;
         }
+    }
+
+    public static boolean onlyOddNumbers(List<Integer> list) {
+        for (int i : list) {
+            if (i % 2 == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
