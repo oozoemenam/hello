@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("nan"));
+        System.out.println(removeWhitespace("Hello    World!"));
     }
 
     public static String reverse(String in) {
@@ -78,5 +78,16 @@ public class Main {
             }
         }
         return result;
+    }
+
+    public static String removeWhitespace(String in) {
+        StringBuilder out = new StringBuilder();
+        char[] charArray = in.toCharArray();
+        for (char c : charArray) {
+            if (!Character.isWhitespace(c)) {
+                out.append(c);
+            }
+        }
+        return out.toString();
     }
 }
