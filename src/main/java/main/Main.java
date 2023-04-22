@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(onlyOddNumbers(List.of(1, 3, 5)));
+        System.out.println(isPalindrome("nan"));
     }
 
     public static String reverse(String in) {
@@ -66,5 +66,17 @@ public class Main {
             }
         }
         return true;
+    }
+
+    public static boolean isPalindrome(String in) {
+        boolean result = true;
+        int length = in.length();
+        for (int i = 0; i < length / 2; i++) {
+            if (in.charAt(i) != in.charAt(length - i - 1)) {
+                result = false;
+                break;
+            }
+        }
+        return result;
     }
 }
