@@ -1,11 +1,12 @@
 package main;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(factorial(5));
+        reverseLinkedList();
     }
 
     public static String reverse(String in) {
@@ -98,5 +99,16 @@ public class Main {
         else {
             return (n * factorial(n - 1));
         }
+    }
+
+    public static void reverseLinkedList() {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        System.out.println(list);
+        LinkedList<Integer> newList = new LinkedList<>();
+        list.descendingIterator().forEachRemaining(newList::add);
+        System.out.println(newList);
     }
 }
