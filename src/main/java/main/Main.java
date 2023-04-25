@@ -2,15 +2,17 @@ package main;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[] arr = { 70, 50, 30, 10, 20, 40, 60 };
-        int[] merged = mergeSort(arr, 0, arr.length - 1);
-        for (int val : merged) {
-            System.out.print(val + " ");
-        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the rows to print:");
+        int rows = scanner.nextInt();
+        scanner.close();
+        System.out.println("Printing Pattern \n");
+        printPattern(rows);
     }
 
     public static String reverse(String in) {
@@ -183,5 +185,22 @@ public class Main {
         int[] sh = mergeSort(arr, mid + 1, hi);
         int[] merged = mergeTwoSortedArrays(fh, sh);
         return merged;
+    }
+
+    public static void printString(String s, int times) {
+        for (int j = 0; j < times; j++) {
+            System.out.print(s);
+        }
+    }
+
+    public static void printPattern(int rows) {
+        for (int i = rows; i >= 1; i--) {
+            int numberOfWhitespaces = i * 2;
+            printString(" ", numberOfWhitespaces);
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j + " ");
+            }
+            System.out.println("");
+        }
     }
 }
