@@ -1,18 +1,21 @@
 package main;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the rows to print:");
-        int rows = scanner.nextInt();
-        scanner.close();
-        System.out.println("Printing Pattern \n");
-        printPattern(rows);
+        Integer[] a1 = {1, 2, 3, 2, 1};
+        Integer[] a2 = {1, 2, 3};
+        Integer[] a3 = {1, 2, 3, 4};
+
+        System.out.println(containsSameElements(a1, a2));
+        System.out.println(containsSameElements(a1, a3));
     }
 
     public static String reverse(String in) {
@@ -202,5 +205,18 @@ public class Main {
             }
             System.out.println("");
         }
+    }
+
+    public static boolean containsSameElements(Object[] array1, Object[] array2) {
+        Set<Object> uniqueElements1 = new HashSet<>(Arrays.asList(array1));
+        Set<Object> uniqueElements2 = new HashSet<>(Arrays.asList(array2));
+
+        if (uniqueElements1.size() != uniqueElements2.size()) return false;
+
+        for (Object obj : uniqueElements1) {
+            if (!uniqueElements2.contains(obj)) return false;
+        }
+
+        return true;
     }
 }
