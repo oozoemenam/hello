@@ -10,12 +10,7 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
-        Integer[] a1 = {1, 2, 3, 2, 1};
-        Integer[] a2 = {1, 2, 3};
-        Integer[] a3 = {1, 2, 3, 4};
-
-        System.out.println(containsSameElements(a1, a2));
-        System.out.println(containsSameElements(a1, a3));
+        System.out.println(sumElements(new int[]{1, 2, 3, 4, 5}));
     }
 
     public static String reverse(String in) {
@@ -218,5 +213,13 @@ public class Main {
         }
 
         return true;
+    }
+
+    public static int sumElements(int[] array) {
+        int sum = 0;
+        for (int i : array) {
+            sum += i;
+        }
+        return sum;
     }
 }
