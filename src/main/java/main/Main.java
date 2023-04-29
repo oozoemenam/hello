@@ -4,13 +4,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(sumElements(new int[]{1, 2, 3, 4, 5}));
+        shuffleArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
     }
 
     public static String reverse(String in) {
@@ -221,5 +222,32 @@ public class Main {
             sum += i;
         }
         return sum;
+    }
+
+    public static int findSecondHighest(int[] array) {
+        int highest = Integer.MIN_VALUE;
+        int secondHighest = Integer.MIN_VALUE;
+        for (int i : array) {
+            if (i > highest) {
+                secondHighest = highest;
+                highest = i;
+            }
+            else if (i > secondHighest) {
+                secondHighest = i;
+            }
+        }
+        return secondHighest;
+    }
+
+    public static void shuffleArray(int[] array) {
+        System.out.println(Arrays.toString(array));
+        Random rand = new Random();
+        for (int i = 0; i < array.length; i++) {
+            int randomIndexToSwap = rand.nextInt(array.length);
+            int temp = array[randomIndexToSwap];
+            array[randomIndexToSwap] = array[i];
+            array[i] = temp;
+        }
+        System.out.println(Arrays.toString(array));
     }
 }
