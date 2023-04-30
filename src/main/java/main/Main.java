@@ -1,6 +1,7 @@
 package main;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
@@ -13,7 +14,12 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(formatDate("MM-dd-yyyy"));
+        System.out.println(
+            mergeList(
+                new ArrayList<String>() {{ add("1"); }},
+                new ArrayList<String>() {{ add("12"); }}
+            )
+        );
     }
 
     public static String reverse(String in) {
@@ -257,5 +263,11 @@ public class Main {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
         return date;
+    }
+
+    public static List<String> mergeList(List<String> list1, List<String> list2) {
+        List<String> mergedList = new ArrayList<>(list1);
+        mergedList.addAll(list2);
+        return mergedList;
     }
 }
