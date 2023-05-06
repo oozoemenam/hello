@@ -4,22 +4,29 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Map.Entry;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(
-            mergeList(
-                new ArrayList<String>() {{ add("1"); }},
-                new ArrayList<String>() {{ add("12"); }}
-            )
-        );
+        Map<String, Integer> scores = new HashMap<>();
+        scores.put("David", 95);
+        scores.put("Jane", 80);
+        scores.put("Mary", 97);
+        scores.put("Lisa", 78);
+        scores.put("Dino", 65);
+        System.out.println(scores);
+        scores = sortByValue(scores);
+        System.out.println(scores);
     }
 
     public static String reverse(String in) {
@@ -269,5 +276,16 @@ public class Main {
         List<String> mergedList = new ArrayList<>(list1);
         mergedList.addAll(list2);
         return mergedList;
+    }
+
+    public static Map<String, Integer> sortByValue(Map<String, Integer> scores) {
+        Map<String, Integer> sortedByValue = new LinkedHashMap<>();
+        Set<Entry<String, Integer>> entrySet = scores.entrySet();
+        List<Entry<String, Integer>> entryList = new ArrayList<>(entrySet);
+        entryList.sort((x, y) -> x.getValue().compareTo(y.getValue()));
+        for (Entry<String, Integer> e : entryList) {
+            sortedByValue.put(e.getKey(), e.getValue());
+        }
+        return sortedByValue;
     }
 }
