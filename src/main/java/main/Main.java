@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.Map.Entry;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(switchExpressionLambda("Sunday"));
+        forEach(List.of("Java", "Python", "C", "C++"));
     }
 
     public static String reverse(String in) {
@@ -316,5 +317,13 @@ public class Main {
             }
         };
         return output;
+    }
+
+    public static void forEach(List<String> list) {
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        list.forEach(System.out::println);
     }
 }
