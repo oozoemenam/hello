@@ -18,7 +18,7 @@ import java.util.Map.Entry;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(distinctCharCount("abcdeABCDEABCEE"));
+        System.out.println("output = " + switchExpression(5));
     }
 
     public static String reverse(String in) {
@@ -292,5 +292,15 @@ public class Main {
             }
         }
         return charsCount;
+    }
+
+    public static int switchExpression(int input) {
+        int output = switch (input) {
+            case 1, 2, 3: 
+                yield input;
+            default:
+                yield -1;
+        };
+        return output;
     }
 }
