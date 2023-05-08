@@ -18,7 +18,7 @@ import java.util.Map.Entry;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("output = " + switchExpression(5));
+        System.out.println(switchExpressionLambda("Sunday"));
     }
 
     public static String reverse(String in) {
@@ -300,6 +300,20 @@ public class Main {
                 yield input;
             default:
                 yield -1;
+        };
+        return output;
+    }
+
+    public static String switchExpressionLambda(String day) {
+        String output = switch (day) {
+            case "M", "W", "F" -> "MWF";
+            case "T", "TH", "S" -> "TTS";
+            default -> {
+                if (day.isEmpty())
+                    yield "Enter a valid day.";
+                else
+                    yield "Looks like a Sunday.";
+            }
         };
         return output;
     }
