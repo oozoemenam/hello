@@ -18,15 +18,7 @@ import java.util.Map.Entry;
 public class Main {
 
     public static void main(String[] args) {
-        Map<String, Integer> scores = new HashMap<>();
-        scores.put("David", 95);
-        scores.put("Jane", 80);
-        scores.put("Mary", 97);
-        scores.put("Lisa", 78);
-        scores.put("Dino", 65);
-        System.out.println(scores);
-        scores = sortByValue(scores);
-        System.out.println(scores);
+        System.out.println(distinctCharCount("abcdeABCDEABCEE"));
     }
 
     public static String reverse(String in) {
@@ -287,5 +279,18 @@ public class Main {
             sortedByValue.put(e.getKey(), e.getValue());
         }
         return sortedByValue;
+    }
+
+    public static Map<Character, Integer> distinctCharCount(String input) {
+        char[] chars = input.toCharArray();
+        Map<Character, Integer> charsCount = new HashMap<>();
+        for (char c : chars) {
+            if (charsCount.containsKey(c)) {
+                charsCount.put(c, charsCount.get(c) + 1);
+            } else {
+                charsCount.put(c, 1);
+            }
+        }
+        return charsCount;
     }
 }
